@@ -58,12 +58,9 @@ sudo ./configure
 
 # Install Bitcoin Core
 cd bitcoin/src
+sudo mkdir /root/.bitcoin
+sudo cp ~/Crypto-on-Ubuntu/bitcoin-full-node/bitcoin.conf /root/.bitcoin/
 sudo make install
 
-# To limit the number of previous transactions downloaded when the blockchain downloads,
-#   you can choose to prune your node. This limits disk space to a maximum in MB.
-# Un-comment this command to prune your node on setup.
-sudo echo "prune=5000" >> /root/.bitcoin/bitcoin.conf
-
 # Launch Bitcoin Core and install the entire blockchain
-sudo bitcoind -reindex
+# sudo bitcoind -reindex
