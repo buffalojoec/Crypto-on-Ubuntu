@@ -68,6 +68,7 @@ sudo make install
 if [[ $PRUNE != "" ]]
 then
     echo "prune=$PRUNE" >> ~/.bitcoin/bitcoin.conf
+fi
 
 # Launch Bitcoin Core and install the entire blockchain
 sudo bitcoind -reindex
