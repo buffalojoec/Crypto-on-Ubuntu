@@ -8,7 +8,7 @@
 # To limit the number of previous transactions downloaded when the blockchain downloads,
 #   you can choose to prune your node. This limits disk space to a maximum in MB.
 # Change this variable to prune your node on setup.
-PRUNE=""
+PRUNE="5000"
 
 # You can start the download of the blockchain anytime by either initializing Bitcoin Core
 #   directly with: sudo bitcoind -reindex
