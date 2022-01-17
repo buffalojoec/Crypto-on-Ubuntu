@@ -5,11 +5,6 @@
 #   which takes over 14 hours depending on processing power,
 #   comment-out the final command of this script: sudo bitcoind -reindex
 
-# To limit the number of previous transactions downloaded when the blockchain downloads,
-#   you can choose to prune your node. This limits disk space to a maximum in MB.
-# Change this variable to prune your node on setup.
-PRUNE="5000"
-
 # You can start the download of the blockchain anytime by either initializing Bitcoin Core
 #   directly with: sudo bitcoind -reindex
 #   or by launching the GUI with: bitcoin-qt -reindex
@@ -65,10 +60,10 @@ sudo ./configure
 cd bitcoin/src
 sudo make install
 
-if [[ $PRUNE != "" ]]
-then
-    echo "prune=$PRUNE" >> /root/.bitcoin/bitcoin.conf
-fi
+# To limit the number of previous transactions downloaded when the blockchain downloads,
+#   you can choose to prune your node. This limits disk space to a maximum in MB.
+# Un-comment this command to prune your node on setup.
+sudo echo "prune=5000" >> /root/.bitcoin/bitcoin.conf
 
 # Launch Bitcoin Core and install the entire blockchain
 sudo bitcoind -reindex
