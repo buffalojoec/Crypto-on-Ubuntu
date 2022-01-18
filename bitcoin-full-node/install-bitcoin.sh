@@ -1,24 +1,18 @@
 # Set up Bitcoin full node
 
-# Note: This will install Bitcoin and immediately download the entire blockchain.
-# To run the install without the final step of installing the entire blockchain,
-#   which takes over 14 hours depending on processing power,
-#   comment-out the final command of this script: sudo bitcoind -reindex
+# Note: This script will install all required dependencies for Bitcoin Core and
+#   install Bitcoin core on your Ubuntu machine
 
 # You can start the download of the blockchain anytime by either initializing Bitcoin Core
-#   directly with: sudo bitcoind -reindex
-#   or by launching the GUI with: bitcoin-qt -reindex
+#   directly with: sudo bitcoind
+#   or by launching the GUI with: bitcoin-qt
 
 # Note: The GUI is the easiest way to configure a wallet for the Bitcoin node you will be running.
 # Launching 'bitcoin-qt' for the first time will prompt you to set up a wallet if you desire.
 
-# WARNING:
-# DO NOT use the flag '-reindex' after your first download of the blockchain.
-#   This will download it again!
-
-# Run this in your root directory ~/ using:
-#    sudo bash ~/Desktop/Ubuntu-Bitcoin-Node-Auto-Setup/setup.sh
-#    sudo bash ~/Desktop/Ubuntu-Bitcoin-Node-Auto-Setup/launch.sh
+#
+# To run this script:
+#    Run this in your root directory ~/ using sudo bash
 
 # Update your system's repositories
 sudo apt update
@@ -58,13 +52,4 @@ sudo ./configure
 
 # Install Bitcoin Core
 cd bitcoin/src
-sudo mkdir /root/.bitcoin
-sudo cp ~/Crypto-on-Ubuntu/bitcoin-full-node/bitcoin.conf /root/.bitcoin/
 sudo make install
-
-# Launch Bitcoin Core and install the entire blockchain
-# To limit the number of previous transactions downloaded when the blockchain downloads,
-#   you can choose to prune your node. This limits disk space to a maximum in MB.
-# Un-comment this variable to prune your node on setup.
-# sudo bitcoind
-sudo bitcoind -prune=5000
