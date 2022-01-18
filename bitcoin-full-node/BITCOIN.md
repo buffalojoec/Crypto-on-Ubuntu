@@ -46,3 +46,15 @@ If you don't prune your node, `bitcoind` will download the entire blockchain and
 The minimum number of blocks required by a node is 288 and the minimum pruning amount above 0 is 550. If you prune your node, `bitcoind` will download the blockchain data as it would normally until it reaches your pruning target. Once there, it will flush (delete) any blocks from disk, but will keep other information such as chainstate, headers, etc. so it can function as a node.
 
 The only drawback from a pruned node is the loss of ability to operate a highly-secure wallet from the machine. If this is your intention, you need to bump storage to at least 750 GB if you want any chance of using the computer for anything besides `bitcoind`.
+
+### Bitcoin Commands
+
+Most of these commands have a host of additional options you can add to modify behavior. Try the `--help` or `-help` flags to take a look at what's available.
+
+`bitcoin-cli -getinfo`: Prints information about the status of your node's synching with the blockchain.
+
+`bitcoin-cli -netinfo`: Get network peer connection information from the remote server.
+
+`bitcoin-cli getblockchaininfo`: Prints information about the blockchain your node is running.
+
+`sudo bitcoin-cli <wallet-name>`: Creates a new wallet on your node with supplied nickname.
