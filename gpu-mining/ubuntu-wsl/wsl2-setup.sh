@@ -8,22 +8,26 @@
 # To run this script, run it with sudo bash from the home directory ~/
 
 # Update Ubuntu
-sudo apt update
+sudo apt update && sudo apt-get update
 sudo apt dist-upgrade
 sudo apt install -y wget
 
-# Download NVIDIA CUDA Driver
-wget https://developer.nvidia.com/51006-gameready-win11-win10-dch-64bit-international
-chmod +x NVIDIA-Linux-x86_64-510.47.03.run
-sudo ./NVIDIA-Linux-x86_64-510.47.03.run
+# Download NVIDIA CUDA toolkit
+sudo apt install nvidia-cuda-toolkit
+nvcc --version
 
 # Configure Driver Software
-sudo usermod -a -G render $LOGNAME
-sudo usermod -a -G video $LOGNAME
+??
 
-# Configure OpenCL
-sudo apt-get install -y clinfo
-sudo apt upgrade amdgpu
+# Configure CUDA repository
+sudo wget -O /etc/apt/preferences.d/cuda-repository-pin-600 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
+sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+
+# Download NVIDIA CUDA
+sudo apt update
+sudo apt install cuda
+sudo apt upgrade nvidia-cuda-toolkit cuda -y
 
 # Download Mining Software: LOL Miner
 wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.42/lolMiner_v1.42_Lin64.tar.gz
