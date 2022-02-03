@@ -30,7 +30,3 @@ tar -xf lolMiner_v1.42_Lin64.tar.gz
 echo -e "\n\nInstall successful. You are ready to mine.\n\n"
 echo "To start mining, open one of the shell scripts in the LOLMiner folder, such as mine_eth.sh"
 echo -e "\n\nYou''ll need to paste in your wallet address and run the script with sudo\n\n"
-
-echo -e "\n\nYour machine will now restart\n\n"
-sleep 10
-sudo reboot
