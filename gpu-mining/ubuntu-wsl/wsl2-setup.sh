@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AMD GPU setup script for Ubuntu machines.
+# NVIDIA GPU setup script for Windows machines.
 # This particular script is for GPU model:
 #     NVIDIA GeForce RTX 3060
 #
